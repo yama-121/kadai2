@@ -24,7 +24,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'translator_node = ros2_kadai2.translator_node:main'
+            'translator_node = ros2_kadai2.translator_node:main',
+            'display = ros2_morse_converter.display:main',
         ],
     },
 )
