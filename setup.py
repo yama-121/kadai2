@@ -1,4 +1,6 @@
 from setuptools import find_packages, setup
+import os
+from glob import glob
 
 package_name = 'ros2_kadai2'
 
@@ -10,13 +12,14 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name), glob('launch/*.launch.py'))
     ],
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='ikki',
     maintainer_email='ikki.yama@icloud.com',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    description='a package for practice',
+    license='BSD-3-Clause',
     extras_require={
         'test': [
             'pytest',
@@ -24,8 +27,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'translator_node = ros2_kadai2.translator_node:main',
-            'display = ros2_morse_converter.display:main',
+            'translator = ros2_kadai2.translator:main',
+            'display = ros2_kadai2.display:main',
         ],
     },
 )
