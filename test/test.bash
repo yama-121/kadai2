@@ -2,16 +2,23 @@
 
 dir=~
 [ "$1" != "" ] && dir="$1"
-
 cd $dir/ros2_ws
-colcon build
-source $dir/.bashrc
 
-timeout 10 ros2 launch ros2_kadai2 morse.launch.py > /tmp/morse.log
+colcon build --packages-select ros2_kadai2
+source install/setup.bash
 
-sleep 3
+rm -f /tmp/morse.log
 
-ros2 topic pub /input_text std_msgs/String "data: 'HELLO'" --once
+timeout 15 ros2 launch ros2_kadai2 morse.launch.py > /tmp/morse.log &
+sleep 2
+ros2 topic pub /input_text std_msgs/String "data: 'HELLO'" --once -w 1
+sleep 2
 
-cat /tmp/morse.log | grep '.... . .-.. .-.. ---'\
-grep'Listen:10'
+if grep -q '\.\.\.\. \. \.\-\.\. \.\-\.\. \-\-\-' /tmp/morse.log; then
+    echo "0"
+    exit 0
+else
+    cat /tmp/morse.log
+    echo "1"
+    exit 1
+fi
