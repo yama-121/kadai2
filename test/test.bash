@@ -2,8 +2,10 @@
 
 dir=~
 [ "$1" != "" ] && dir="$1"
-cd $dir/ros2_ws
 
+source /opt/ros/humble/setup.bash
+
+cd $dir/ros2_ws
 colcon build --packages-select ros2_kadai2
 source install/setup.bash
 
