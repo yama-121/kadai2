@@ -12,9 +12,9 @@ source install/setup.bash
 rm -f /tmp/morse.log
 
 timeout 15 ros2 launch ros2_kadai2 morse.launch.py > /tmp/morse.log &
-sleep 5
+sleep 10
 ros2 topic pub /input_text std_msgs/String "data: 'HELLO'" --once -w 1
-sleep 2
+sleep 5
 
 if grep -q '\.\.\.\. \. \.\-\.\. \.\-\.\. \-\-\-' /tmp/morse.log; then
     echo "0"
