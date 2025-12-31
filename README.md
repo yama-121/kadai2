@@ -16,7 +16,7 @@ $ source install/setup.bash
 ```
 
 # 使い方
-2つのターミナルを用いて使用します。　　
+2つのターミナルを用いて使用します。  　　
 launchファイルを使用して、変更・表示の両ノードを立ち上げます。
 ```
 $ ros2 launch ros2_kadai2 morse.launch.py
