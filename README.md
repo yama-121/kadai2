@@ -4,7 +4,7 @@
 
 # モールス信号
 ROS 2 Humble環境で動作する、英単語からモールス信号に変更するシステムです。
-入力されたテキストを解析して翻訳する `translator` ノードと、翻訳結果を受け取って表示する `display` ノードの2つで構成されています。
+ `translator` ノードと、変更結果を受け取って表示する `display` ノードの2つで構成されています。
 
 # インストール
 ```
@@ -16,18 +16,19 @@ $ source install/setup.bash
 ```
 
 # 使い方
-2つのターミナルを用いて使用します。
-launchファイルを使用して、翻訳・表示の両ノードを立ち上げます。
+2つのターミナルを用いて使用します。　　
+launchファイルを使用して、変更・表示の両ノードを立ち上げます。
 ```
 $ ros2 launch ros2_kadai2 morse.launch.py
 ```
 
-別のターミナルから、英単語（例: HELLO）を入力します。
+別のターミナルから、英単語を入力します。
 ```
-$ ros2 topic pub /input_text std_msgs/String "data: 'HELLO'" --once起動した
+$ ros2 topic pub /input_text std_msgs/String "data: 'HELLO'" --once
 ```
 
-launshファイル側に、以下のように変換後の信号が表示されます
+launshファイル側に、以下のように変換後の信号が表示されます  
+例
 [display-2]: [INFO] .... . .-.. .-.. ---
 
 # 必要なソフトウェア
