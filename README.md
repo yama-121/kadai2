@@ -8,9 +8,9 @@ ROS 2 Humble環境で動作する、英単語からモールス信号に変更�
 
 # インストール
 ```
-$cd ~/ros2_ws/src
+$ cd ~/ros2_ws/src
 $ git clone [https://github.com/yama-121/kadai2.git](https://github.com/yama-121/kadai2.git)
-$cd ~/ros2_ws
+$ cd ~/ros2_ws
 $ colcon build --packages-select ros2_kadai2
 $ source install/setup.bash
 ```
@@ -28,9 +28,7 @@ $ ros2 topic pub /input_text std_msgs/String "data: 'HELLO'" --once起動した
 ```
 
 launshファイル側に、以下のように変換後の信号が表示されます
-```
 [display-2]: [INFO] .... . .-.. .-.. ---
-```
 
 # 必要なソフトウェア
 - Python 3.10 ~ 3.13
