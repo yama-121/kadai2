@@ -1,34 +1,39 @@
-# kadai2
+# ros2_kadai2
 
 ![test](https://github.com/yama-121/kadai2/actions/workflows/test.yml/badge.svg)
 
 # モールス信号
-入力された英語をモールス信号に変換する
+ROS 2 Humble環境で動作する、英単語からモールス信号に変更するシステムです。
+入力されたテキストを解析して翻訳する `translator` ノードと、翻訳結果を受け取って表示する `display` ノードの2つで構成されています。
 
 # インストール
 ```
-$ git clone https://github.com/yama-121/robosys2025.git
-$ cd robosys2025
-$ chmod +x count
+$cd ~/ros2_ws/src
+$ git clone [https://github.com/yama-121/kadai2.git](https://github.com/yama-121/kadai2.git)
+$cd ~/ros2_ws
+$ colcon build --packages-select ros2_kadai2
+$ source install/setup.bash
 ```
 
 # 使い方
-このプログラムは、標準入力から日付を受け取り、標準出力に経過日数を返します。
-
-入力形式: YYYY-MM-DD形式の日付文字列 (例: 2000-01-01)
-
-出力形式: 経過した日数
-
-未来の日付を指定することはできません。
-日付の月や日が1桁の場合でも、07のように2桁で入力する必要があります。
-例
+2つのターミナルを用いて使用します。
+launchファイルを使用して、翻訳・表示の両ノードを立ち上げます。
 ```
-$ echo "2000-01-01" | ./count
-9475
+$ ros2 launch ros2_kadai2 morse.launch.py
+```
+
+別のターミナルから、英単語（例: HELLO）を入力します。
+```
+$ ros2 topic pub /input_text std_msgs/String "data: 'HELLO'" --once起動した
+```
+
+launshファイル側に、以下のように変換後の信号が表示されます
+```
+[display-2]: [INFO] .... . .-.. .-.. ---
 ```
 
 # 必要なソフトウェア
-- Python 3.9 ~ 3.13
+- Python 3.10 ~ 3.13
 - Ubuntu 22.04.5
 - git version 2.34.1
 

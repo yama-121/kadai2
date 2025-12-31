@@ -15,13 +15,13 @@ rm -f /tmp/morse.log
 
 timeout 60 ros2 launch ros2_kadai2 morse.launch.py > /tmp/morse.log &
 
-sleep 15
+sleep 20
 
-ros2 topic pub -r 10 /input_text std_msgs/String "data: 'HELLO'" --once-for 3
+ros2 topic pub -r 10 /input_text std_msgs/String "data: 'HELLO'" --once-for 10
 
 sleep 5
 
-if grep -qE "Published|\.\.\.\. \. \.\-\.\. \.\-\.\. \-\-\-" /tmp/morse.log; then
+if grep -q "Published" /tmp/morse.log; then
     echo "0"
     exit 0
 else
