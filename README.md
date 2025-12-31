@@ -9,7 +9,7 @@ ROS 2 環境で動作する、英単語からモールス信号に変更する�
 # インストール
 ```
 $ cd ~/ros2_ws/src
-$ git clone [https://github.com/yama-121/kadai2.git]
+$ git clone[https://github.com/yama-121/kadai2.git]
 $ cd ~/ros2_ws
 $ colcon build --packages-select ros2_kadai2
 $ source install/setup.bash
