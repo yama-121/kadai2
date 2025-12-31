@@ -5,6 +5,9 @@ dir=~
 
 source /opt/ros/humble/setup.bash
 
+export ROS_DOMAIN_ID=0
+export ROS_LOCALHOST_ONLY=1
+
 cd $dir/ros2_ws
 colcon build --packages-select ros2_kadai2
 source install/setup.bash
@@ -16,7 +19,7 @@ sleep 20
 ros2 topic pub /input_text std_msgs/String "data: 'HELLO'" --once -w 1
 sleep 5
 
-if grep -q "Morse Received\.\.\.\. \. \.\-\.\. \.\-\.\. \-\-\-" /tmp/morse.log; then
+if grep -q "\.\.\.\. \. \.\-\.\. \.\-\.\. \-\-\-" /tmp/morse.log; then
     echo "0"
     exit 0
 else

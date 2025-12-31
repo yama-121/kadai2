@@ -4,8 +4,7 @@ from std_msgs.msg import String
 
 class MorseTranslator(Node):
     def __init__(self):
-        super().__init__('translator')
-        # 入力を受け取る設定
+        super().__init__('translator') 
         self.sub = self.create_subscription(String, 'input_text', self.callback, 10)
         self.pub = self.create_publisher(String, 'morse_code', 10)
         self.dict = {
@@ -28,7 +27,7 @@ class MorseTranslator(Node):
         res = String()
         res.data = ' '.join(morse_list)
         self.pub.publish(res)
-        self.get_logger().info(f'Translated: {text} -> {res.data}')
+        self.get_logger().info(f'Published: {res.data}')
 
 def main():
     rclpy.init()

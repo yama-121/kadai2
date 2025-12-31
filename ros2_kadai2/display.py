@@ -8,7 +8,7 @@ class MorseDisplay(Node):
         self.sub = self.create_subscription(String, 'morse_code', self.callback, 10)
 
     def callback(self, msg):
-        self.get_logger().info(f'Morse Received{msg.data}')
+        self.get_logger().info(f'{msg.data}')
 
 def main():
     rclpy.init()
