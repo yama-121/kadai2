@@ -3,7 +3,7 @@
 ![test](https://github.com/yama-121/kadai2/actions/workflows/test.yml/badge.svg)
 
 # モールス信号
-ROS 2 Humble環境で動作する、英単語からモールス信号に変更するシステムです。
+ROS 2 環境で動作する、英単語からモールス信号に変更するシステムです。
  `translator` ノードと、変更結果を受け取って表示する `display` ノードの2つで構成されています。
 
 # インストール
@@ -36,6 +36,7 @@ launshファイル側に、以下のように変換後の信号が表示され�
 - Python 3.10 ~ 3.13
 - Ubuntu 22.04.5
 - git version 2.34.1
+- ROS 2
 
 # 権利関係
 - このソフトウェアパッケージは、3条項BSDライセンスの下，再頒布および使用が許可されます。
