@@ -11,7 +11,7 @@ source install/setup.bash
 
 rm -f /tmp/morse.log
 
-timeout 15 ros2 launch ros2_kadai2 morse.launch.py > /tmp/morse.log &
+timeout 30 ros2 launch ros2_kadai2 morse.launch.py > /tmp/morse.log &
 sleep 20
 ros2 topic pub /input_text std_msgs/String "data: 'HELLO'" --once -w 1
 sleep 5
