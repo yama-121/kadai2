@@ -9,7 +9,7 @@ ROS 2 環境で動作する、英単語からモールス信号に変更する�
 # インストール
 ```
 $ cd ~/ros2_ws/src
-$ git clone [https://github.com/yama-121/kadai2.git](https://github.com/yama-121/kadai2.git)
+$ git clone [https://github.com/yama-121/kadai2.git]
 $ cd ~/ros2_ws
 $ colcon build --packages-select ros2_kadai2
 $ source install/setup.bash
@@ -25,10 +25,10 @@ $ ros2 launch ros2_kadai2 morse.launch.py
 
 別のターミナルから、英単語を入力します。
 ```
-$ ros2 topic pub /input_text std_msgs/String "data: 'HELLO'" --once
+$ ros2 topic pub /input_text std_msgs/String "data: 'HELLO'"
 ```
 
-launshファイル側に、以下のように変換後の信号が表示されます  
+launchファイル側に、以下のように変換後の信号が表示されます  
 例
 [display-2]: [INFO] .... . .-.. .-.. ---
 
