@@ -25,6 +25,7 @@ setup(
             'pytest',
         ],
     },
+
     entry_points={
         'console_scripts': [
             'translator = ros2_kadai2.translator:main',
