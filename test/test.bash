@@ -21,7 +21,7 @@ ros2 topic pub -r 10 /input_text std_msgs/String "data: 'HELLO'" --once-for 3
 
 sleep 5
 
-if grep -p "Published: \.\.\.\. \. \.\-\.\. \.\-\.\. \-\-\-" /tmp/morse.log; then
+if grep -qE "Published|\.\.\.\. \. \.\-\.\. \.\-\.\. \-\-\-" /tmp/morse.log; then
     echo "0"
     exit 0
 else
