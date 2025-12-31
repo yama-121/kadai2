@@ -22,8 +22,7 @@ class MorseTranslator(Node):
         morse_list = []
         for char in text:
             if char in self.dict:
-                morse_list.append(self.dict[char])
-        
+                morse_list.append(self.dict[char]) 
         res = String()
         res.data = ' '.join(morse_list)
         self.pub.publish(res)

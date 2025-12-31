@@ -6,3 +6,4 @@ def generate_launch_description():
         Node(package='ros2_kadai2', executable='translator', name='translator'),
         Node(package='ros2_kadai2', executable='display', name='display'),
     ])
+
