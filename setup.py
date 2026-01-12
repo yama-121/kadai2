@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 import os
 from glob import glob
 
-package_name = 'ros2_kadai2'
+package_name = 'kadai2'
 
 setup(
     name=package_name,
@@ -28,8 +28,8 @@ setup(
 
     entry_points={
         'console_scripts': [
-            'translator = ros2_kadai2.translator:main',
-            'display = ros2_kadai2.display:main',
+            'translator = kadai2.translator:main',
+            'display = kadai2.display:main',
         ],
     },
 )

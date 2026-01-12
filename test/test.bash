@@ -1,4 +1,6 @@
 #!/bin/bash
+# SPDX-FileCopyrightText: 2025 ikki yamanaka
+# SPDX-License-Identifier: BSD-3-Clause
 
 source /opt/ros/humble/setup.bash
 export ROS_DOMAIN_ID=0
@@ -8,12 +10,12 @@ dir=~
 [ "$1" != "" ] && dir="$1"
 
 cd $dir/ros2_ws
-colcon build --packages-select ros2_kadai2
+colcon build --packages-select kadai2
 source install/setup.bash
 
 rm -f /tmp/morse.log
 
-timeout 60 ros2 launch ros2_kadai2 morse.launch.py > /tmp/morse.log 2>&1 &
+timeout 60 ros2 launch kadai2 morse.launch.py > /tmp/morse.log 2>&1 &
 
 sleep 20
 
