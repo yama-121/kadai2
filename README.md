@@ -9,7 +9,7 @@ ROS 2 環境で動作する、英単語からモールス信号に変更する�
 # ノード・トピック
 # translator ノード
 入力された文字列をモールス信号に変換します。
-- 入力トピック:`　/input_text` (std_msgs/String)
+- 入力トピック:`/input_text` (std_msgs/String)
 - 出力トピック:`/morse_code` (std_msgs/String)
 
 # display ノード
@@ -19,11 +19,17 @@ ROS 2 環境で動作する、英単語からモールス信号に変更する�
 # 使い方
 パッケージのノードは標準的なROS 2トピックを使用しており、他のノードや標準コマンドと柔軟に連携可能です。
 
-launchファイルを使用して、trnslatorとdisplayの両ノードを立ち上げます。
+launchファイルを使用して、translatorとdisplayの両ノードを立ち上げます。
 ```
 $ ros2 launch kadai2 morse.launch.py
+```
+2つ目のターミナルから、標準のros2 topic pub コマンドを使用して、文字列を送信。
+```
 $ ros2 topic pub /input_text std_msgs/String "data: 'HELLO'" -1
-$ ros2 topic echo /morse_code
+```
+display ノードを使わずに、標準の ros2 topic echo を使って直接メッセージを確認することも可能です。
+```
+ros2 topic echo /morse_code
 ```
 以下のように変換後の信号が表示されます  
 例
